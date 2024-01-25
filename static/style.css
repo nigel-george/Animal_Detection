@@ -1,0 +1,293 @@
+/* Importing Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Global Reset and Defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive; /* Applying Poppins font to all elements */
+}
+
+body {
+    background: #f9f9f9;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 100;
+    height: 80px; /* Adjust the height as needed */
+    padding: 0 20px; /* Add padding for better spacing */
+}
+.btn-about-us {
+    margin-left: auto; /* Push the "About Us" button to the right */
+    align-items: center;
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 2em;
+    color: #359381;
+    pointer-events: none;
+    margin-right: auto; /* Adjust margin as needed */
+    z-index: 1000;
+    position: fixed;
+}
+
+/* Navigation Styling */
+.navigation a {
+    text-decoration: none;
+    color: #359381;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+/* Navigation Hover and Active States */
+.navigation a:hover,
+.navigation a.active {
+    background: #359381;
+    color: #fff;
+}
+
+/* Parallax Section Styling */
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.resimageBtn{
+
+   
+    background: #39a99c;
+    z-index: 15000;
+
+}
+.form-signin {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #858e89;
+    
+    margin-top: 30px;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#resultuniqueId img.result-image {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    object-fit: cover;
+    max-height: 500px;
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+}
+
+
+
+/* Text Styling within Parallax Section */
+#text {
+    position: absolute;
+    font-size: 5em;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling within Parallax Section */
+.parallax img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none; /* Disable pointer events on images */
+}
+
+/* Section with Class .sec Styling */
+.sec {
+    position: relative;
+    background: #003329;
+    padding: 350px;
+}
+
+/* Headings Styling within .sec */
+.sec h2 {
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Paragraphs Styling within .sec */
+.sec p {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 300;
+}
+
+/* Button Styles */
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 16px 32px; /* Increased button padding for larger size */
+    margin: 0 10px;
+    border: 2px solid #359381; /* Added border to the button */
+    border-radius: 8px; /* Rounded border */
+    font-size: 18px; /* Adjusted font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+.buttons button:hover {
+    background-color: #359381;
+    color: white;
+}
+
+#uploadButton {
+    background-color: #359381;
+    color: #fff;
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 16px; /* Adjust font size as needed */
+    border-radius: 8px; /* Rounded border */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the Upload button */
+#uploadButton:hover {
+    background-color: #2b7c6e; /* Darker shade on hover */
+    color: white;
+}
+
+/* Style modal content */
+.modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    color: #333;
+    overflow: hidden; /* Ensure modal content doesn't overflow */
+}
+
+/* Style modal header */
+.modal-header {
+    background-color: #359381;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    padding: 15px; /* Add padding to the header */
+}
+.modal {
+    z-index: 30000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, hsl(166, 67%, 22%),hsl(300, 40%, 5%));
+    
+    box-shadow: 0 1rem 2rem #000a;
+  }
+/* Style modal body */
+.modal-body {
+    padding: 20px;
+}
+
+/* Style modal footer */
+.modal-footer {
+    background-color: #f5f5f5;
+    border-radius: 0 0 10px 10px;
+    padding: 15px; /* Add padding to the footer */
+}
+
+/* Close button */
+.close {
+    color: #fff;
+}
+
+/* Apply subtle box shadow */
+.modal-content, .modal-dialog {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.list-btn {
+    padding: 2px 18px;
+    margin: 0 10px;
+    border: 2px solid #359381;
+    border-radius: 47px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Apply the existing button hover effect to the list button */
+.list-btn:hover {
+    background-color: #359381;
+    color: white;
+}
+
+.btn-about-us{background-color: #359381;
+    color: #fff;
+    border: none;
+    margin-right: 10px;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+}
+.btn-out-team {
+    background-color: #359381;
+    color: #fff;
+    border: none;
+    margin-right: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive styles for smaller screens */
+@media only screen and (max-width: 600px) {
+    /* Additional styles for screens up to 600px wide */
+    .buttons button {
+        padding: 12px 15px; /* Further adjusted button padding for smaller screens */
+        font-size: 14px; /* Further adjusted font size for smaller screens */
+    }
+
+    .list-btn {
+        padding: 8px 15px; /* Further adjusted padding for smaller screens */
+        font-size: 14px; /* Further adjusted font size for smaller screens */
+    }
+
+    #text {
+        font-size: 2.5em; /* Further adjusted font size for smaller screens */
+    }
+
+    .sec h2 {
+        font-size: 1.5em; /* Further adjusted font size for smaller screens */
+    }
+
+    .sec p {
+        font-size: 0.9em; /* Further adjusted font size for smaller screens */
+    }
+    
+}
+
+
+

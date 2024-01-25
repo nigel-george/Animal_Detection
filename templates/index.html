@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Animal Species Detection</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="d-flex justify-content-between align-items-center">
+        <h2 class="logo">JUMANJI</h2>
+        <button type="button" class="btn navbar-btn btn-about-us" data-toggle="modal" data-target="#aboutUsModal">About Us</button>   
+        <button type="button" class="btn navbar-btn btn-out-team" data-toggle="modal"
+              data-target="#ourTeamModal">Our Team</button>
+    </header>
+    
+    <section class="parallax">
+      <img src="{{ url_for('static', filename='hill1.png') }}" id="hill1">
+      <img src="{{ url_for('static', filename='hill2.png') }}" id="hill2">
+      <img src="{{ url_for('static', filename='hill3.png') }}" id="hill3">
+      <img src="{{ url_for('static', filename='hill4.png') }}" id="hill4">
+      <img src="{{ url_for('static', filename='hill5.png') }}" id="hill5">
+      <img src="{{ url_for('static', filename='tree.png') }}" id="tree">
+      <h2 id="text">Animal Detection</h2>
+      <img src="{{ url_for('static', filename='leaf.png') }}" id="leaf">
+      <img src="{{ url_for('static', filename='plant.png') }}" id="plant">
+  </section>
+  <div class="modal fade" id="aboutUsModal" tabindex="-1" role="dialog" aria-labelledby="aboutUsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutUsModalLabel">About Us</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Welcome to our animal detection application powered by YOLOv7. Our mission is to provide a user-friendly platform that allows users to detect and identify various animal species using advanced computer vision technology.</p>
+          <p>With a passion for technology, our team has worked tirelessly to create this application, aiming to raise awareness about the diverse animal kingdom and promote the importance of coexisting with nature.</p>
+          <!-- Add more content as needed -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="ourTeamModal" tabindex="-1" role="dialog" aria-labelledby="ourTeamModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="ourTeamModalLabel">Our Team</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>We are a dedicated team of developers, designers, and wildlife enthusiasts who joined forces to create this animal detection application. Each member brings a unique set of skills and expertise, contributing to the success of our project.</p>
+      <p>Meet our team:</p>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li><strong>Leela Prasad</strong> - Project Lead</li>
+        <li><strong>Ahmad Iqbal</strong> - Project Manager</li>
+        <li><strong>Nigel George</strong> - FrontEnd and Deployment Developer</li>
+        <li><strong>Tony Regi Jacob</strong> - BackendEnd and Deployment Developer</li>
+        <li><strong>Muhammad Hasan</strong> - Data Engineer</li>
+        <li><strong>Dharma </strong> - Document Specialist</li>
+        <!-- Add more team members as needed -->
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+    <section class="sec">
+        <h2> Detect the animal Species</h2>
+        <p>
+            We have 80 different animals in our <button class=" list-btn"  id="listBtn" data-toggle="modal" data-target="#animalInfoModal"> List </button><br><br>
+        </p>
+        <div class="buttons">
+            <button id="imageBtn" data-toggle="modal" data-target="#uploadModal">Image</button>
+            
+            <button id="webcamBtn" onclick="redirectWebcam()">Webcam</button>
+        </div>
+    </section>
+    <div class="modal fade" id="animalInfoModal" tabindex="-1" role="dialog" aria-labelledby="animalInfoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="animalInfoModalLabel">List of Animal Species</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-4">
+                  <ul class="animal-list" style="list-style: none; padding: 0; margin: 0;">
+                    <li>Bear</li>
+                    <li>Brown bear</li>
+                    <li>Bull</li>
+                    <li>Butterfly</li>
+                    <li>Camel</li>
+                    <li>Canary</li>
+                    <li>Caterpillar</li>
+                    <li>Cattle</li>
+                    <li>Centipede</li>
+                    <li>Cheetah</li>
+                    <li>Chicken</li>
+                    <li>Crab</li>
+                    <li>Crocodile</li>
+                    <li>Deer</li>
+                    <li>Duck</li>
+                    <li>Eagle</li>
+                    <li>Elephant</li>
+                    <li>Fish</li>
+                    <li>Fox</li>
+                    <li>Frog</li>
+                    <li>Giraffe</li>
+                    <li>Goat</li>
+                    <li>Goldfish</li>
+                    <li>Goose</li>
+                    <li>Hamster</li>
+                    <li>Harbor seal</li>
+                    <li>Hedgehog</li>
+                    <li>Hippopotamus</li>
+                    <li>Horse</li>
+                    <li>Jaguar</li>
+                    <li>Jellyfish</li>
+                    <li>Kangaroo</li>
+                    <li>Koala</li>
+                    <li>Ladybug</li>
+                    <li>Leopard</li>
+                    <li>Lion</li>
+                    <li>Lizard</li>
+                    <li>Lynx</li>
+                    <li>Magpie</li>
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                  <ul class="animal-list" style="list-style: none; padding: 0; margin: 0;">
+                    <li>Monkey</li>
+                    <li>Moths and butterflies</li>
+                    <li>Mouse</li>
+                    <li>Mule</li>
+                    <li>Ostrich</li>
+                    <li>Otter</li>
+                    <li>Owl</li>
+                    <li>Panda</li>
+                    <li>Parrot</li>
+                    <li>Penguin</li>
+                    <li>Pig</li>
+                    <li>Polar bear</li>
+                    <li>Rabbit</li>
+                    <li>Raccoon</li>
+                    <li>Raven</li>
+                    <li>Red panda</li>
+                    <li>Rhinoceros</li>
+                    <li>Scorpion</li>
+                    <li>Sea lion</li>
+                    <li>Sea turtle</li>
+                    <li>Seahorse</li>
+                    <li>Shark</li>
+                    <li>Sheep</li>
+                    <li>Shrimp</li>
+                    <li>Snail</li>
+                    <li>Snake</li>
+                    <li>Sparrow</li>
+                    <li>Spider</li>
+                    <li>Squid</li>
+                    <li>Squirrel</li>
+                    <li>Starfish</li>
+                    <li>Swan</li>
+                    <li>Tick</li>
+                    <li>Tiger</li>
+                    <li>Tortoise</li>
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                  <ul class="animal-list" style="list-style: none; padding: 0; margin: 0;">
+                    <li>Turkey</li>
+                    <li>Turtle</li>
+                    <li>Whale</li>
+                    <li>Woodpecker</li>
+                    <li>Worm</li>
+                    <li>Zebra</li>
+                    <!-- Add more animal species here -->
+                  </ul>
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="uploadModalLabel">Upload Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Display selected image -->
+        <img id="selectedImagePreview" class="img-fluid mb-3" src="https://imgs.search.brave.com/peKXv9IotIiGuMcW8bbylbbkW_uO85gteF75HF2QvIw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudGhlbm91bnBy/b2plY3QuY29tL3Bu/Zy8yMTIzMjktMjAw/LnBuZw" alt="Selected Image">
+
+        <!-- Form for image upload -->
+        <form id="imageUploadForm" method="post" enctype="multipart/form-data">
+          <label for="inputfile" class="custom-file-upload">
+            Choose File
+          </label>
+          <input type="file" name="file" class="form-control-file" id="inputfile" accept="image/*">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="box" id="uploadButton">Upload</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" ></script>
+
+<!-- Bootstrap JS library -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+
+<!-- Your custom script -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+
+</body>
+
+</html>

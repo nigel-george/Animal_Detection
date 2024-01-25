@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Animal Species Detection</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="d-flex justify-content-between align-items-center">
+        <h2 class="logo">JUMANJI</h2>
+        <button type="button" class="btn navbar-btn btn-about-us" data-toggle="modal" data-target="#aboutUsModal">About Us</button>   
+        <button type="button" class="btn navbar-btn btn-out-team" data-toggle="modal"
+              data-target="#ourTeamModal">Our Team</button>
+    </header>
+    
+    <section class="parallax">
+      <img src="{{ url_for('static', filename='hill1.png') }}" id="hill1">
+      <img src="{{ url_for('static', filename='hill2.png') }}" id="hill2">
+      <img src="{{ url_for('static', filename='hill3.png') }}" id="hill3">
+      <img src="{{ url_for('static', filename='hill4.png') }}" id="hill4">
+      <img src="{{ url_for('static', filename='hill5.png') }}" id="hill5">
+      <img src="{{ url_for('static', filename='tree.png') }}" id="tree">
+      <form class="  resformbutton" method="post" enctype="multipart/form-data">
+       
+    </form>
+    <div id="resultuniqueId"><img class="result-image form-signin card_res mb-6"  id="text" src="{{ url_for('static', filename=result_image) }}" alt="User_Image"></div>
+    
+      <img src="{{ url_for('static', filename='leaf.png') }}" id="leaf">
+      <img src="{{ url_for('static', filename='plant.png') }}" id="plant">
+  </section>
+  <div class="modal fade" id="aboutUsModal" tabindex="-1" role="dialog" aria-labelledby="aboutUsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutUsModalLabel">About Us</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Welcome to our animal detection application powered by YOLOv7. Our mission is to provide a user-friendly platform that allows users to detect and identify various animal species using advanced computer vision technology.</p>
+          <p>With a passion for technology, our team has worked tirelessly to create this application, aiming to raise awareness about the diverse animal kingdom and promote the importance of coexisting with nature.</p>
+          <!-- Add more content as needed -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="ourTeamModal" tabindex="-1" role="dialog" aria-labelledby="ourTeamModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="ourTeamModalLabel">Our Team</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>We are a dedicated team of developers, designers, and wildlife enthusiasts who joined forces to create this animal detection application. Each member brings a unique set of skills and expertise, contributing to the success of our project.</p>
+      <p>Meet our team:</p>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li><strong>Leela Prasad</strong> - Project Lead</li>
+        <li><strong>Ahmad Iqbal</strong> - Project Manager</li>
+        <li><strong>Nigel George</strong> - FrontEnd and Deployment Developer</li>
+        <li><strong>Tony Regi Jacob</strong> - BackendEnd and Deployment Developer</li>
+        <li><strong>Muhammad Hasan</strong> - Data Engineer</li>
+        <li><strong>Dharma </strong> - Document Specialist</li>
+        <!-- Add more team members as needed -->
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+    <section class="sec">
+      <div class="buttons">
+
+        <p id="resimageBtn">Animal Name: {{ animal_name }}</p>
+      </div>
+        <div class="buttons">
+            <button id="resimageBtn" class="btn mt-3 resimageBtn" data-toggle="modal" data-target="#animalInfoModal">Animal Species Info</button>
+            <button id="resimageBtn" class="btn mt-3 resimageBtn" onclick="resformsubmit()">Test Another Image</button>
+        </div>
+    </section>
+   
+    <!-- Animal Info Modal -->
+    <div class="modal fade" id="animalInfoModal" tabindex="-1" role="dialog" aria-labelledby="animalInfoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="animalInfoModalLabel">Animal Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Animal Name: {{ animal_name }}</p>
+                    <p>Animal Info: {{ animal_info }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" ></script>
+
+<!-- Bootstrap JS library -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+
+<!-- Your custom script -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+
+</body>
+
+</html>
